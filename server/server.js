@@ -42,12 +42,12 @@ app.post('/send-email', (req, res) => {
     console.log("Transporter: ", transporter)
     if (error) {
       console.log(error);
-      res.redirect('/ConfirmacionMail.html');
+      res.redirect('http://127.0.0.1:5500/ConfirmacionMail.html');
     //   res.status(500).send('Error al enviar el correo');
     } else {
       console.log('Correo enviado: ' + info.response);
     //   res.status(200).send('Correo enviado');
-      res.redirect('/ConfirmacionMail.html');
+      res.redirect('http://127.0.0.1:5500/ConfirmacionMail.html');
     }
   });
 });
