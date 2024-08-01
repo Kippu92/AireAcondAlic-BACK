@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+console.log("hola")
 
 app.post('/send-email', (req, res) => {
   const { nombre, correo, telefono, servicio, comentarios } = req.body;
