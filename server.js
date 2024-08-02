@@ -29,11 +29,19 @@ app.post('/send-email', (req, res) => {
   //   },
   // });
 
-    const transporter = nodemailer.createTransport({
+  //   const transporter = nodemailer.createTransport({
+  //   service: 'Gmail',
+  //   auth: {
+  //     user: process.env.GMAIL_USER, 
+  //     pass: process.env.GMAIL_PASS, 
+  //   },
+  // });
+
+  const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: process.env.GMAIL_USER, 
-      pass: process.env.GMAIL_PASS, 
+      user: "alicanteaireacondicionado@gmail.com", 
+      pass: "qyyu ifqh cfvt nfwd"
     },
   });
 
