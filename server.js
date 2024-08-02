@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
@@ -17,8 +18,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-console.log("hola")
-
 app.post('/send-email', (req, res) => {
   const { nombre, correo, telefono, servicio, comentarios } = req.body;
 
@@ -33,14 +32,14 @@ app.post('/send-email', (req, res) => {
     const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'alicanteaireacondicionado@gmail.com', 
-      pass: 'qyyu ifqh cfvt nfwd', 
+      user: process.env.GMAIL_USER, 
+      pass: process.env.GMAIL_PASS, 
     },
   });
 
   const mailOptions = {
-    from: 'alicanteaireacondicionado@gmail.com',
-    to: 'alicanteaireacondicionado@gmail.com',
+    from: process.env.GMAIL_USER,
+    to: process.env.GMAIL_USER,
     subject: 'Nuevo contacto desde el formulario',
     text: `Nombre: ${nombre}\nCorreo: ${correo}\nTeléfono: ${telefono}\nServicio: ${servicio}\nComentarios: ${comentarios}`,
   };
